@@ -15,9 +15,9 @@ public class CursoR {
         this.conn = conn;
     }
     
-    public void save(Curso curso){
+    public void save(Curso curso) {
         try {
-            PreparedStatement ps=conn.prepareStatement(
+            PreparedStatement ps = conn.prepareStatement(
                     "insert into cursos (titulo,profesor,dia,turno) values (?,?,?,?)", 1
             );
             ps.setString(1, curso.getTitulo());
@@ -25,20 +25,20 @@ public class CursoR {
             ps.setString(3, curso.getDia());
             ps.setString(4, curso.getTurno());
             ps.execute();
-            ResultSet rs=ps.getGeneratedKeys();
-            if(rs.next()) curso.setId(rs.getInt(1));
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) curso.setId(rs.getInt(1));
         } catch (Exception e) {
             System.out.println(e);
         }
     }
     
-    private List<Curso> getByFiltro(String filtro){
-        List<Curso>lista=new ArrayList();
+    private List<Curso> getByFiltro(String filtro) {
+        List<Curso> lista = new ArrayList();
         try {
-            ResultSet rs=conn.createStatement().executeQuery(
-                    "select * from cursos where "+filtro
+            ResultSet rs = conn.createStatement().executeQuery(
+                    "select * from cursos where " + filtro
             );
-            while(rs.next()){
+            while(rs.next()) {
                 lista.add(
                         new Curso(
                                 rs.getInt("id"),
@@ -55,30 +55,28 @@ public class CursoR {
         return lista;
     }
     
-    public List<Curso> getAll(){
+    public List<Curso> getAll() {
         return getByFiltro("1=1");
     }
     
-    public Curso getById(int id){
-        List<Curso>lista=getByFiltro("id="+id);
-        return (lista==null || lista.isEmpty())?null:lista.get(0);
+    public Curso getById(int id) {
+        List<Curso> lista = getByFiltro("id=" + id);
+        return (lista == null || lista.isEmpty())? null:lista.get(0);
     }
     
-    public List<Curso> getByTitulo(String titulo){
-        return getByFiltro("titulo='"+titulo+"'");
+    public List<Curso> getByTitulo(String titulo) {
+        return getByFiltro("titulo='" + titulo + "'");
     }
     
-    public List<Curso> getByProfesor(String profesor){
-        return getByFiltro("profesor='"+profesor+"'");
+    public List<Curso> getByProfesor(String profesor) {
+        return getByFiltro("profesor='" + profesor + "'");
     }
     
-    public List<Curso> getByDia(String dia){
-        return getByFiltro("dia='"+dia+"'");
+    public List<Curso> getByDia(String dia) {
+        return getByFiltro("dia='" + dia + "'");
     }
     
-    public List<Curso> getByTurno(String turno){
-        return getByFiltro("turno='"+turno+"'");
+    public List<Curso> getByTurno(String turno) {
+        return getByFiltro("turno='" + turno + "'");
     }
-    
-    
 }

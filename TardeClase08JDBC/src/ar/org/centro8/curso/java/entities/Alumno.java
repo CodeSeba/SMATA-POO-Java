@@ -7,9 +7,8 @@ public class Alumno {
     private int edad;
     private int idCurso;
 
-    public Alumno() {
-    }
-
+    public Alumno() {}
+    
     public Alumno(String nombre, String apellido, int edad, int idCurso) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -24,10 +23,18 @@ public class Alumno {
         this.edad = edad;
         this.idCurso = idCurso;
     }
-
+    
     @Override
     public String toString() {
         return "Alumno{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", idCurso=" + idCurso + '}';
+    }
+
+    public int getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(int idCurso) {
+        this.idCurso = idCurso;
     }
 
     public int getId() {
@@ -62,13 +69,5 @@ public class Alumno {
         this.edad = edad;
     }
 
-    public int getIdCurso() {
-        return idCurso;
-    }
-
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
-    }
-    
     
 }

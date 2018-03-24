@@ -7,9 +7,6 @@ public class Curso {
     private String dia;
     private String turno;
 
-    public Curso() {
-    }
-
     public Curso(String titulo, String profesor, String dia, String turno) {
         this.titulo = titulo;
         this.profesor = profesor;
@@ -69,6 +66,5 @@ public class Curso {
     public void setTurno(String turno) {
         this.turno = turno;
     }
-    
     
 }
