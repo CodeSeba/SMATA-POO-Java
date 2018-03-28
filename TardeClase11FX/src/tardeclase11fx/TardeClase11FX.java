@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TardeClase10FX extends Application {
+public class TardeClase11FX extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
