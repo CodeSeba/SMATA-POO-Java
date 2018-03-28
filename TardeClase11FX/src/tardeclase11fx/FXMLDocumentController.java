@@ -77,7 +77,7 @@ public class FXMLDocumentController implements Initializable {
         radSoltero.setSelected(true);
     }    
 
-    private void armarListaCheck() throws SecurityException {
+    private void armarListaCheck() {
         // Armar listaCheck
         listaCheck = new ArrayList();
         Field[] fields = this.getClass().getDeclaredFields();
@@ -116,7 +116,6 @@ public class FXMLDocumentController implements Initializable {
         listaCheck.forEach(item -> item.setSelected(false));
         radSoltero.setSelected(true);
         cmbColores.setValue("Rojo");
-        
         txtNombre.requestFocus();
     }
     
