@@ -16,17 +16,17 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="698.0" prefWidth="500.0">
                <children>
-                  <Label layoutX="172.0" layoutY="61.0" prefHeight="15.0" prefWidth="57.0" text="Nombre:" />
-                  <TextField fx:id="txtNombre" layoutX="230.0" layoutY="56.0" prefHeight="23.0" prefWidth="350.0" />
-                  <Label layoutX="172.0" layoutY="119.0" prefHeight="15.0" prefWidth="57.0" text="Apellido:" />
-                  <TextField fx:id="txtApellido" layoutX="230.0" layoutY="115.0" prefHeight="23.0" prefWidth="350.0" />
-                  <Label layoutX="172.0" layoutY="173.0" prefHeight="15.0" prefWidth="57.0" text="Edad:" />
-                  <TextField fx:id="txtEdad" layoutX="230.0" layoutY="169.0" prefHeight="23.0" prefWidth="350.0" />
-                  <Label layoutX="172.0" layoutY="227.0" prefHeight="15.0" prefWidth="57.0" text="Curso:" />
+                  <Label layoutX="95.0" layoutY="71.0" prefHeight="15.0" prefWidth="57.0" text="Nombre:" />
+                  <TextField fx:id="txtNombre" layoutX="153.0" layoutY="66.0" prefHeight="23.0" prefWidth="350.0" />
+                  <Label layoutX="95.0" layoutY="119.0" prefHeight="15.0" prefWidth="57.0" text="Apellido:" />
+                  <TextField fx:id="txtApellido" layoutX="153.0" layoutY="115.0" prefHeight="23.0" prefWidth="350.0" />
+                  <Label layoutX="95.0" layoutY="173.0" prefHeight="15.0" prefWidth="57.0" text="Edad:" />
+                  <TextField fx:id="txtEdad" layoutX="153.0" layoutY="169.0" prefHeight="23.0" prefWidth="350.0" />
+                  <Label layoutX="95.0" layoutY="227.0" prefHeight="15.0" prefWidth="57.0" text="Curso:" />
                   <Button fx:id="btnAgregar" layoutX="474.0" layoutY="370.0" mnemonicParsing="false" onAction="#agregar" prefHeight="35.0" prefWidth="106.0" text="Agregar" />
-                  <Label fx:id="lblInfo" layoutX="172.0" layoutY="270.0" prefHeight="88.0" prefWidth="410.0" />
-                  <ComboBox fx:id="cmbCursos" layoutX="230.0" layoutY="222.0" prefHeight="23.0" prefWidth="351.0" />
-                  <TableView fx:id="tblAlumno" layoutX="14.0" layoutY="464.0" prefHeight="224.0" prefWidth="572.0">
+                  <Label fx:id="lblInfo" layoutX="123.0" layoutY="263.0" prefHeight="88.0" prefWidth="410.0" />
+                  <ComboBox fx:id="cmbCursos" layoutX="153.0" layoutY="222.0" prefHeight="23.0" prefWidth="351.0" />
+                  <TableView fx:id="tblAlumnos" layoutX="14.0" layoutY="464.0" prefHeight="224.0" prefWidth="572.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                         <TableColumn prefWidth="75.0" text="C2" />
@@ -38,10 +38,36 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Curso">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
+      <Tab text="Cursos">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="698.0" prefWidth="500.0">
+               <children>
+                  <Label layoutX="96.0" layoutY="71.0" prefHeight="15.0" prefWidth="57.0" text="Titulo:" />
+                  <TextField fx:id="txtTitulo" layoutX="154.0" layoutY="66.0" prefHeight="23.0" prefWidth="350.0" />
+                  <Label layoutX="96.0" layoutY="119.0" prefHeight="15.0" prefWidth="57.0" text="Profesor:" />
+                  <TextField fx:id="txtProfesor" layoutX="154.0" layoutY="115.0" prefHeight="23.0" prefWidth="350.0" />
+                  <Label layoutX="96.0" layoutY="173.0" prefHeight="15.0" prefWidth="57.0" text="Dia:" />
+                  <Label layoutX="96.0" layoutY="227.0" prefHeight="15.0" prefWidth="57.0" text="Turno:" />
+                  <Button fx:id="btnAgregarCurso" layoutX="474.0" layoutY="370.0" mnemonicParsing="false" onAction="#agregarCurso" prefHeight="35.0" prefWidth="106.0" text="Agregar" />
+                  <Label fx:id="lblInfoCurso" layoutX="123.0" layoutY="264.0" prefHeight="79.0" prefWidth="410.0" />
+                  <TableView fx:id="tblCursos" layoutX="14.0" layoutY="464.0" prefHeight="224.0" prefWidth="572.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="C1" />
+                        <TableColumn prefWidth="75.0" text="C2" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="25.0" layoutY="423.0" prefHeight="15.0" prefWidth="57.0" text="Dia:" />
+                  <TextField fx:id="txtBuscarDia" layoutX="83.0" layoutY="419.0" onKeyReleased="#buscarDia" prefHeight="23.0" prefWidth="350.0" />
+                  <Button fx:id="btnEliminarCurso" layoutX="474.0" layoutY="413.0" mnemonicParsing="false" onAction="#eliminarCurso" prefHeight="35.0" prefWidth="106.0" text="Eliminar" />
+                  <ComboBox fx:id="cmbDias" layoutX="153.0" layoutY="169.0" prefHeight="23.0" prefWidth="350.0" />
+                  <ComboBox fx:id="cmbTurnos" layoutX="153.0" layoutY="223.0" prefHeight="23.0" prefWidth="349.0" />
+                  <Label layoutX="25.0" layoutY="393.0" prefHeight="15.0" prefWidth="57.0" text="Profesor:" />
+                  <TextField fx:id="txtBuscarProfesor" layoutX="83.0" layoutY="389.0" onKeyReleased="#buscarProfesor" prefHeight="23.0" prefWidth="350.0" />
+                  <Label layoutX="25.0" layoutY="363.0" prefHeight="15.0" prefWidth="57.0" text="Titulo:" />
+                  <TextField fx:id="txtBuscarTitulo" layoutX="83.0" layoutY="359.0" onKeyReleased="#buscarTitulo" prefHeight="23.0" prefWidth="350.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
   </tabs>
 </TabPane>
