@@ -1,21 +1,22 @@
-#maven specific 
-target/
+# Maven specific 
+**/target/
 
-#ant specific
-dist/
-build/
+# Netbeans specific
+**/dist/
+**/nbdist/
+**/build/
+**/nbbuild/
+**/nbproject/private/
+**/nbproject/*
+!**/nbproject/project.properties
+!**/nbproject/project.xml
 
-#netbeans specific
-core
-nbproject/
-!nbproject/project.properties
-!nbproject/project.xml
-
-
-#java specific
+# Package Files
 *.jar
+*.war
+*.ear
 
-#general swap/backup files
+# General swap/backup files
 *.so
 *.log
 *.out
