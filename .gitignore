@@ -1,5 +1,6 @@
 # Maven specific 
 **/target/
+*.class
 
 # Netbeans specific
 **/dist/
