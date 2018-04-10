@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class TestHibernet {
+public class TestHibernate {
 
     public static void main(String[] args) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
