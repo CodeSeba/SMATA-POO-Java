@@ -1,5 +1,5 @@
 package ar.org.centro8.curso.java.entities;
-// Generated Apr 11, 2018 3:49:28 PM by Hibernate Tools 4.3.1
+// Generated 11/04/2018 15:49:21 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -16,8 +16,7 @@ import javax.persistence.Table;
 @Table(name="cursos"
     ,catalog="colegio"
 )
-public class Cursos  implements java.io.Serializable {
-
+public class Curso  implements java.io.Serializable {
 
      private Integer id;
      private String titulo;
@@ -25,15 +24,22 @@ public class Cursos  implements java.io.Serializable {
      private String dia;
      private String turno;
 
-    public Cursos() {
+    public Curso(){
     }
 
-    public Cursos(String titulo, String profesor, String dia, String turno) {
+    public Curso(String titulo, String profesor, String dia, String turno) {
        this.titulo = titulo;
        this.profesor = profesor;
        this.dia = dia;
        this.turno = turno;
     }
+
+    @Override
+    public String toString() {
+        return "Curso{" + "id=" + id + ", titulo=" + titulo + ", profesor=" + profesor + ", dia=" + dia + ", turno=" + turno + '}';
+    }
+    
+    
    
      @Id @GeneratedValue(strategy=IDENTITY)
 

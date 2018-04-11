@@ -45,9 +45,9 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/colegio</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"/>
+    <property name="hibernate.connection.password"></property>
     <property name="hibernate.show_sql">true</property>
-    <mapping class="ar.org.centro8.curso.java.entities.Alumnos"/>
-    <mapping class="ar.org.centro8.curso.java.entities.Cursos"/>
+    <mapping class="ar.org.centro8.curso.java.entities.Curso"/>
+    <mapping class="ar.org.centro8.curso.java.entities.Alumno"/>
   </session-factory>
 </hibernate-configuration>
