@@ -6,7 +6,7 @@ import ar.org.centro8.curso.java.repositories.AlumnoR;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class TestRepositories {
+public class TestRepository {
     public static void main(String[] args) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
