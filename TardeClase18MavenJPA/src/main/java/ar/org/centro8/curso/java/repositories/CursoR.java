@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
 
 public class CursoR<E> extends GenericR<E> implements I_CursoR{
 
-	public CursoR(EntityManager em, Class clazz) {
-		super(em, clazz);
+	public CursoR(EntityManager em) {
+		super(em, Curso.class);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class CursoR<E> extends GenericR<E> implements I_CursoR{
 	@Override
 	public List<Curso> getByTurno(String turno) {
 		return em.createNamedQuery("Curso.findByTurno")
-				.setParameter("tiulo", turno).getResultList();
+				.setParameter("turno", turno).getResultList();
 	}
 
 	@Override
@@ -57,5 +57,4 @@ public class CursoR<E> extends GenericR<E> implements I_CursoR{
 		return em.createNamedQuery("Alumno.findByIdCurso")
 				.setParameter("idCurso", idCurso).getResultList();
 	}
-    
 }
