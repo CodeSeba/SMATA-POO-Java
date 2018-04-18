@@ -17,10 +17,12 @@ public class TestJPA {
         
         tx.begin();
         
+		System.out.println("------ .persist() ------");
         em.persist(alumno);
         System.out.println(alumno);
         
-        alumno = em.find(Alumno.class, 60);
+        System.out.println("------ .find() ------");
+		alumno = em.find(Alumno.class, 60);
         System.out.println(alumno);
         
         if (alumno != null) {
@@ -28,12 +30,14 @@ public class TestJPA {
             alumno.setApellido("Vazques");
         }
         
-        alumno = em.find(Alumno.class, 62);
+        System.out.println("------ .remove() ------");
+		alumno = em.find(Alumno.class, 62);
         if (alumno != null) em.remove(alumno);
         
         tx.commit();
         
-        em.createNamedQuery("Alumno.findAll", Alumno.class)
+        System.out.println("------ NamedQuery('Alumno.findAll',...) ------");
+		em.createNamedQuery("Alumno.findAll", Alumno.class)
                 .getResultList().forEach(System.out::println);
         
         System.out.println("------ NamedQuery('Alumno.findByApellido',...) ------");
