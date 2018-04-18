@@ -7,35 +7,44 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class TestGenericR {
-    public static void main(String[] args) {
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session session = sf.openSession();
-        
-        GenericR<Alumno> ar = new GenericR(session, Alumno.class);
-        
-        Alumno alumno = new Alumno("Pedro", "Picapiedras", 33, 3);
-        
-        ar.save(alumno);
-        
-        System.out.println(alumno);
-        
-        ar.remove(ar.getById(55));
-        
-        alumno = ar.getById(45);
-        
-        if (alumno!=null) {
-            alumno.setNombre("Manuel");
-            alumno.setApellido("Belgrano");
-            ar.update(alumno);
-        }
-        
-        ar.getAll().forEach(System.out::println);
-        
-        System.out.println("--- ar.getByFiltro() ---");
-        
-        ar.getByFiltro("nombre like '%nan%'").forEach(System.out::println);
-        
-        session.close();
-        sf.close();
-    }
+
+	public static void main(String[] args) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+
+		GenericR<Alumno> ar = new GenericR(session, Alumno.class);
+
+		Alumno alumno = new Alumno("Pedro", "Picapiedras", 33, 3);
+
+		System.out.println("------ .save() ------");
+		ar.save(alumno);
+		System.out.println(alumno);
+
+		System.out.println("------ .getById() ------");
+		alumno = ar.getById(55);
+		System.out.println(alumno);
+
+		if (alumno != null) {
+			System.out.println("------ .remove() ------");
+			ar.remove(alumno);
+		}
+
+		alumno = ar.getById(45);
+		if (alumno != null) {
+			System.out.println("------ .update() ------");
+			alumno.setNombre("Manuel");
+			alumno.setApellido("Belgrano");
+			ar.update(alumno);
+			System.out.println(alumno);
+		}
+
+		System.out.println("------ .getAll() ------");
+		ar.getAll().forEach(System.out::println);
+
+		System.out.println("------ .getByFiltro() ------");
+		ar.getByFiltro("nombre like '%nan%'").forEach(System.out::println);
+
+		session.close();
+		sf.close();
+	}
 }

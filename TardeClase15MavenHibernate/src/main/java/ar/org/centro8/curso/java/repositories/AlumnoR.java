@@ -2,7 +2,6 @@ package ar.org.centro8.curso.java.repositories;
 
 import ar.org.centro8.curso.java.entities.Alumno;
 import java.util.List;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
