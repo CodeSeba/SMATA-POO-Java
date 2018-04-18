@@ -4,7 +4,7 @@ import ar.org.centro8.curso.java.entities.Alumno;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+
 
 public class TestJPA {
 
