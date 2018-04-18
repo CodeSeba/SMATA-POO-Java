@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 public class GenericR<E> implements I_GenericR<E> {
 
     protected EntityManager em;
-    private final Class clazz;
+    private Class clazz;
 
     public GenericR(EntityManager em, Class clazz) {
         this.em = em;
@@ -15,6 +15,7 @@ public class GenericR<E> implements I_GenericR<E> {
 
     @Override
     public void save(E e) {
+        if(e==null) return;
         try {
             em.getTransaction().begin();
             em.persist(e);
@@ -27,6 +28,7 @@ public class GenericR<E> implements I_GenericR<E> {
 
     @Override
     public void remove(E e) {
+        if(e==null) return;
         try {
             em.getTransaction().begin();
             em.remove(e);
@@ -39,6 +41,7 @@ public class GenericR<E> implements I_GenericR<E> {
 
     @Override
     public void update(E e) {
+        if(e==null) return;
         try {
             em.getTransaction().begin();
             em.persist(e);

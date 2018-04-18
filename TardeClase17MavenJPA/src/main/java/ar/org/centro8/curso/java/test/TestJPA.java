@@ -9,36 +9,50 @@ public class TestJPA {
 
     public static void main(String[] args) {
         EntityManager em = Persistence.createEntityManagerFactory("JPAPU").createEntityManager();
-        Alumno alumno = new Alumno("Nicolas", "Leon", 21, 1);
-
         EntityTransaction tx = em.getTransaction();
+        Alumno alumno = new Alumno("Nicolas", "Leon", 21, 1);
+		System.out.println(alumno);
+		
         tx.begin();
-        em.persist(alumno);
+        
+		System.out.println("------ .persist() ------");
+		em.persist(alumno);
         System.out.println(alumno);
 
-        alumno = em.find(Alumno.class, 60);
+        System.out.println("------ .find() ------");
+		alumno = em.find(Alumno.class, 60);
         System.out.println(alumno);
 
-        if (alumno != null) {
+        System.out.println("------ .update() ------");
+		alumno = em.find(Alumno.class, 64);
+		System.out.println(alumno);
+		if (alumno != null) {
             alumno.setNombre("Karina");
             alumno.setApellido("Vazques");
         }
+		System.out.println(em.find(Alumno.class, 64));
 
-         alumno = em.find(Alumno.class, 62);
+        System.out.println("------ .remove() ------");
+		alumno = em.find(Alumno.class, 62);
         if (alumno != null) {
             em.remove(alumno);
         }
+		System.out.println(em.find(Alumno.class, 62));
 
         tx.commit();
 
-        em.createNamedQuery("Alumno.findAll",Alumno.class).getResultList().forEach(System.out::println);
-        em.createNamedQuery("Alumno.findByApellido", Alumno.class)
+        System.out.println("------ .createNamedQuery('Alumno.findAll', Class) ------");
+		em.createNamedQuery("Alumno.findAll",Alumno.class).getResultList().forEach(System.out::println);
+        
+		System.out.println("------ .createNamedQuery('Alumno.findByApellido', Class) ------");
+		em.createNamedQuery("Alumno.findByApellido", Alumno.class)
                 .setParameter("apellido", "Picapiedras")
                 .getResultList()
                 .forEach(System.out::println);
 
         try {
-            Thread.sleep(10000);
+            // sleep se utilizo para ver las conexiones en la base de datos
+			Thread.sleep(10000);
         } catch (Exception e) {
             System.out.println(e);
         }
