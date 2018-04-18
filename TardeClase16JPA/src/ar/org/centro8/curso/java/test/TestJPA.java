@@ -4,7 +4,6 @@ import ar.org.centro8.curso.java.entities.Alumno;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 public class TestJPA {
 
@@ -17,26 +16,34 @@ public class TestJPA {
         
         tx.begin();
         
+		System.out.println("------ .persist() ------");
         em.persist(alumno);
         System.out.println(alumno);
         
-        alumno = em.find(Alumno.class, 60);
+        System.out.println("------ .find() ------");
+		alumno = em.find(Alumno.class, 68);
         System.out.println(alumno);
         
-        if (alumno != null) {
+        System.out.println("------ update ? ------");
+		if (alumno != null) {
             alumno.setNombre("Karina");
             alumno.setApellido("Vazques");
         }
+		System.out.println(em.find(Alumno.class, 70));
         
         alumno = em.find(Alumno.class, 62);
-        if (alumno != null) em.remove(alumno);
+        if (alumno != null) {
+			System.out.println("------ .remove() ------");
+			em.remove(alumno);
+		}
         
         tx.commit();
         
+		System.out.println("------ .createNamedQuery('Alumno.findAll', Class) ------");
         em.createNamedQuery("Alumno.findAll", Alumno.class)
                 .getResultList().forEach(System.out::println);
         
-        System.out.println("------ NamedQuery('Alumno.findByApellido',...) ------");
+        System.out.println("------ NamedQuery('Alumno.findByApellido', Class) ------");
         em.createNamedQuery("Alumno.findByApellido", Alumno.class).setParameter("apellido","Picapiedras")
                 .getResultList().forEach(System.out::println);
     }
