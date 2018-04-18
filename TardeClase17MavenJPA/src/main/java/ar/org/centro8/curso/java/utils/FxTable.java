@@ -6,17 +6,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class FxTable<E> {
+public class FxTable<E>{
     
     public void removeCol(TableView tv, int index){
         tv.getColumns().remove(index);
     }
 
     public void cargar(List<E> lista, TableView tv) {
-        if (tv==null) return;
+        if(tv==null) return;
         tv.getColumns().clear();
         tv.getItems().clear();
-        if (lista==null || lista.isEmpty()) return;
+        if(lista==null || lista.isEmpty()) return;
         E obj = lista.get(0);
         Field[] campos = obj.getClass().getDeclaredFields();
         int cantidad = campos.length;
