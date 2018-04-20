@@ -39,6 +39,15 @@ public class Test extends HttpServlet {
 			out.println("</head>");
 			out.println("<body>");
 			out.println("<h1>Servlet Test at " + request.getContextPath() + "</h1>");
+			out.println("<h1>Servidor de Sebas</h1>");
+			try {
+				// http://localhost:8080/TardeClase19WEBJSP/Test?nro1=4&nro2=5
+				int nro1 = Integer.parseInt(request.getParameter("nro1"));
+				int nro2 = Integer.parseInt(request.getParameter("nro2"));
+				out.println("<h2>La suma total: " + (nro1 + nro2) + "</h2>");
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 			out.println("</body>");
 			out.println("</html>");
 		}
@@ -56,7 +65,8 @@ public class Test extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		processRequest(request, response);
+		// processRequest(request, response);
+		response.getWriter().println("No se soporta parametros por GET!");
 	}
 
 	/**
