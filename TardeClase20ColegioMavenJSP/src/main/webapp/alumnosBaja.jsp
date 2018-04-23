@@ -11,7 +11,8 @@
         <h1>Baja de Alumos</h1>
 		<form action="alumnosBaja2.jsp" method="post">
 			<table>
-				<select name="curso">
+				<select name="alumno">
+					<option></option>
 					<%
 						List<Alumno> alumnos = new GenericR(Connector.getConnection(), Alumno.class).getAll();
 						for (Alumno alumno : alumnos) {

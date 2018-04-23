@@ -12,5 +12,6 @@
 			<li><a href="cursosListado.jps">Listado de cursos</a></li>
 			<li><a href="index.jps">Menu Principal</a></li>
 		</ul>
+		<% out.println(Html.volver("index.jsp")); %>
     </body>
 </html>
