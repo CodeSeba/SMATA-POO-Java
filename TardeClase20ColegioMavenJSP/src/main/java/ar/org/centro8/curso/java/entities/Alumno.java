@@ -29,7 +29,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", idCurso=" + idCurso + '}';
+        return id + ", " + nombre + ", " + apellido + ", " + edad + ", " + idCurso;
     }
 
     public int getId() {
