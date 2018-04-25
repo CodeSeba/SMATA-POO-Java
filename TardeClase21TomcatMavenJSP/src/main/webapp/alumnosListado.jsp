@@ -10,7 +10,7 @@
         <h1>Listado de Alumnos</h1>
 		<%
 			GenericR<Alumno> ar = new GenericR(Connector.getConnection(), Alumno.class);
-			out.println("			<table>");
+			out.println("	<table>");
 			out.println("				<tr><th>Id</th><th>Nombre</th><th>Apellido</th><th>Edad</th><th>idCurso</th></tr>");
 			for (Alumno item:ar.getAll() ) {
 					out.println("					<tr>");
@@ -21,6 +21,7 @@
 					out.println("						<td>" + item.getIdCurso()+ "</td>");
 			};
 		%>
+		
 		<% out.println(Html.volver("alumnos.jsp"));%>
 	</body>
 </html>
