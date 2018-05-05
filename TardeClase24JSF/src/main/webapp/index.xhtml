@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+    <head>
+        <title>Facelet Title</title>
+    </head>
+    <body>
+        <f:view>
+			<h:form>
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Saludo: " for="saludo"/>
+					
+					<h:selectOneMenu id="saludo" label="saludo" value="#{personaBean.persona.saludo}">
+						<f:selectItem itemLabel="Sr."	itemValue="SR"/>
+						<f:selectItem itemLabel="Sra."	itemValue="SRA"/>
+						<f:selectItem itemLabel="Srta."	itemValue="SRTA"/>
+						<f:selectItem itemLabel="Lic."	itemValue="LIC"/>
+					</h:selectOneMenu>
+					<h:message for="saludo"/>
+					
+					<h:outputLabel value="Nombre:" for="nombre"/>
+					<h:inputText id="nombre" required="true" value="#{personaBean.persona.nombre}"/>
+					<h:message for="nombre"/>
+					
+					<h:outputLabel value="Apellido:" for="apellido"/>
+					<h:inputText id="apellido" required="true" value="#{personaBean.persona.apellido}"/>
+					<h:message for="apellido"/>
+					
+					<h:panelGroup/>
+					<h:commandButton id="registrar" value="Registrar" action="#{personaBean.crear()}"/>
+					<h:outputLabel value="#{personaBean.mensaje}"/>
+					
+				</h:panelGrid>
+			</h:form>
+		</f:view>
+		
+		<f:view>
+			<h:form>
+				<h:dataTable value="#{personaBean.all}" var="item" border="2">
+					<h:column><f:facet name="header">Saludo</f:facet>#{item.saludo}</h:column>
+					<h:column><f:facet name="header">Nombre</f:facet>#{item.nombre}</h:column>
+					<h:column><f:facet name="header">Apellido</f:facet>#{item.apellido}</h:column>
+				</h:dataTable>
+			</h:form>
+		</f:view>
+		
+		<!-- jstl JSP Tag Library -->
+
+	</body>
+</html>
+
