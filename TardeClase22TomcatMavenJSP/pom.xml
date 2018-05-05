@@ -8,7 +8,9 @@
 	<packaging>war</packaging>
 
 	<name>TardeClase22TomcatMavenJSP</name>
-
+	
+	<!--  Se necesita instalar Tomcat WebServer en la pc -->
+	
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
