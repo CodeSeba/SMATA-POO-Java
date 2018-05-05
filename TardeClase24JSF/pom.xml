@@ -100,7 +100,7 @@
 					<assembleDirectory>target</assembleDirectory>
 					<programs>
 						<program>
-							<mainClass>launch.Main</mainClass>
+							<mainClass>ar.org.centro8.curso.java.webserver.Launch</mainClass>
 							<name>webapp</name>
 						</program>
 					</programs>

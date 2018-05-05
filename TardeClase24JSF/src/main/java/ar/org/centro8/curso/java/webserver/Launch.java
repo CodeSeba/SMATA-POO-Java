@@ -1,11 +1,11 @@
-package launch;
+package ar.org.centro8.curso.java.webserver;
 
 import javax.servlet.ServletException;
 import java.io.File;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
-public class Main {
+public class Launch {
 
     public static void main(String[] args) throws LifecycleException,
             InterruptedException, ServletException {
