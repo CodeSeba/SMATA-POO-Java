@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.zetcode</groupId>
+	<groupId>ar.org.centro8.curso.java</groupId>
 	<artifactId>TardeClase23TomcatEmbeded</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -13,6 +13,8 @@
 		<tomcat.version>9.0.0.M6</tomcat.version>
 	</properties>
     
+	<name>TardeClase23TomcatEmbeded</name>
+	
 	<dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -73,7 +75,7 @@
 					<assembleDirectory>target</assembleDirectory>
 					<programs>
 						<program>
-							<mainClass>launch.Main</mainClass>
+							<mainClass>ar.org.centro8.curso.java.webserver.Launch</mainClass>
 							<name>webapp</name>
 						</program>
 					</programs>
@@ -89,5 +91,4 @@
 			</plugin>
 		</plugins>    
 	</build>
-	<name>TardeClase23TomcatEmbeded</name>
 </project>
