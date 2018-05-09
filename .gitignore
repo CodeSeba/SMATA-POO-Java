@@ -11,8 +11,6 @@
 **/build/
 **/nbbuild/
 **/nbproject/private/
-!**/nbproject/project.properties
-!**/nbproject/project.xml
 
 # Package Files
 *.jar
@@ -27,3 +25,8 @@
 *.swp
 *.DS_Store
 *.lock
+
+# Exceptions
+!**/nbproject/project.properties
+!**/nbproject/project.xml
+!**/lib/*.jar
