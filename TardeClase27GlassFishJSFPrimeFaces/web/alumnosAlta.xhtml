@@ -15,22 +15,24 @@
 				<h:panelGrid columns="2">
 					
 					<p:outputLabel value="Nombre:"/>
-					<p:inputText value="#{alumnoMB.alumno.nombre}"/>
+					<p:inputText id="nombre" value="#{alumnoMB.alumno.nombre}"/>
 					
 					<p:outputLabel value="Apellido:"/>
-					<p:inputText value="#{alumnoMB.alumno.apellido}"/>
+					<p:inputText id="apellido" value="#{alumnoMB.alumno.apellido}"/>
 					
 					<p:outputLabel value="Edad:"/>
-					<p:inputText value="#{alumnoMB.alumno.edad}"/>
+					<p:inputText id="edad" value="#{alumnoMB.alumno.edad}"/>
 					
-					<p:outputLabel value="Curso:"/>
+					<p:outputLabel id="curso" value="Curso:"/>
 					<p:selectOneMenu value="#{alumnoMB.alumno.idCurso}">
 						<f:selectItems value="#{cursoMB.all}" var="c"
 									   itemLabel="#{c.id} #{c.titulo} #{c.profesor} #{c.dia} #{c.turno}"
 									   itemValue="#{c.id}"/>
 					</p:selectOneMenu>
 					
-					<p:commandButton action="#{alumnoMB.save()}" value="Agregar" update="msgs" style="width: 100px"/>
+					<p:commandButton action="#{alumnoMB.save()}" value="Agregar"
+									 update="msgs,nombre,apellido,edad,curso"
+									 style="width: 100px"/>
 					
 				</h:panelGrid>
 			</h:form>
