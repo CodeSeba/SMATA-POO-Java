@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+        <title>Sistema de colegio</title>
+    </h:head>
+    <h:body>
+		<p:panel header="Alta de Alumnos">
+			<h:form>
+				<h:panelGrid columns="2">
+					
+					<p:outputLabel value="Nombre:"/>
+					<p:inputText value=""/>
+					
+					<p:outputLabel value="Apellido:"/>
+					<p:inputText value=""/>
+					
+					<p:outputLabel value="Edad:"/>
+					<p:inputText value=""/>
+					
+					<p:outputLabel value="Curso:"/>
+					<p:selectOneMenu>
+						<f:selectItems value="#{cursoMb.all}" var="c"
+									   itemLabel="#{c.id} #{c.titulo} #{c.profesor} #{c.dia} #{c.turno}"
+									   itemValue="#{c.id}"/>
+					</p:selectOneMenu>
+					
+					<p:commandButton value="Agregar" style="width: 100px"/>
+				</h:panelGrid>
+			</h:form>
+			<h:form>
+				<p:commandButton value="Volver" style="width: 100px" action="index.xhtml"/>
+			</h:form>
+		</p:panel>
+    </h:body>
+</html>
