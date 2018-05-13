@@ -24,5 +24,4 @@ public class CursoMB implements Serializable {
 	public List<Curso> getAll() {
 		return cr.getAll();
 	}
-	
 }

@@ -10,25 +10,25 @@
     </h:head>
     <h:body>
 		<p:panel header="Baja de Alumnos">
-			
+
 			<h:form>
 				<p:growl id="msgs" showDetail="true"/>
-				
-				<p:selectOneMenu id="alumnos" value="#{alumnoMB.alumno.id}">
-					<f:selectItems value="#{alumnoMB.all}"
-								   var="a"
-								   itemValue="#{a.id}"
-								   itemLabel="#{a.id} #{a.nombre} #{a.apellido} #{a.edad} #{a.idCurso}"/>
-				</p:selectOneMenu>
-				
-				<p:commandButton action="#{alumnoMB.remove()}" value="Borrar" update="msgs,alumnos" style="width: 100px"/>
-			
+
+				<h:panelGrid columns="2">
+					<p:selectOneMenu id="alumnos" value="#{alumnoMB.alumno.id}">
+						<f:selectItems value="#{alumnoMB.all}" var="a"
+									   itemValue="#{a.id}"
+									   itemLabel="#{a.id}, #{a.nombre}, #{a.apellido}, #{a.edad}, #{a.idCurso}"/>
+					</p:selectOneMenu>
+
+					<p:commandButton action="#{alumnoMB.remove()}" value="Borrar" update="msgs, alumnos" style="width: 100px"/>
+				</h:panelGrid>
 			</h:form>
-			
+
 			<h:form>
-				<p:commandButton value="Volver" action="index.xhtml"/>
+				<p:commandButton value="Volver" style="width: 100px; margin: 3px" action="index.xhtml"/>
 			</h:form>
-		
+
 		</p:panel>
 	</h:body>
 </html>
