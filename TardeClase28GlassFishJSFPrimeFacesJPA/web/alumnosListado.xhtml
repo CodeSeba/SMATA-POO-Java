@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+        <title>Sistema de colegio</title>
+    </h:head>
+    <h:body>
+		<p:panel header="Listado de Alumnos">
+
+			<h:form>
+				<h:panelGrid columns="4">
+					<p:commandButton value="--" oncomplete="PF('menuDeslizable').show()"/>
+					<p:outputLabel value="Buscar Apellido:"/>
+					<p:inputText value="#{alumnoMB.buscarApellido}"/>
+					<p:commandButton update="tablaAlumnos" value="Buscar"/>
+				</h:panelGrid>
+
+				<p:dataTable id="tablaAlumnos" var="a" style="margin: 10px 3px"
+							 value="#{alumnoMB.likeApellido}"
+							 rows="10" paginator="true"
+							 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							 rowsPerPageTemplate="5,10,15,20">
+
+					<p:column headerText="Id">			<h:outputText value="#{a.id}"/>			</p:column>
+					<p:column headerText="Nombre">		<h:outputText value="#{a.nombre}"/>		</p:column>
+					<p:column headerText="Apellido">	<h:outputText value="#{a.apellido}"/>	</p:column>
+					<p:column headerText="Edad">		<h:outputText value="#{a.edad}"/>		</p:column>
+					<p:column headerText="IdCurso">		<h:outputText value="#{a.idCurso}"/>	</p:column>
+
+				</p:dataTable>
+			</h:form>
+
+			<h:form>
+				<p:commandButton value="Volver" style="width: 100px; margin: 3px" action="index.xhtml"/>
+			</h:form>
+
+		</p:panel>
+
+		<h:form>
+			<p:sidebar widgetVar="menuDeslizable" baseZIndex="10000" style="padding: 6px; width: auto">
+
+				<p:menu toggleable="true" style="margin: 30px 0px 10px">
+					<p:submenu label="Alumnos">
+						<p:menuitem value="Altas"			action="alumnosAlta.xhtml"/>
+						<p:menuitem value="Bajas"			action="alumnosBaja.xhtml"/>
+						<p:menuitem value="Modificaciones"	action="alumnosModificaciones.xhtml"/>
+						<p:menuitem value="Listados"		action="alumnosListado.xhtml"/>
+					</p:submenu>
+					<p:submenu label="Cursos">
+						<p:menuitem value="Altas"			action="cursosAlta.xhtml"/>
+						<p:menuitem value="Bajas"			action="cursosBaja.xhtml"/>
+						<p:menuitem value="Modificaciones"	action="cursosModificaciones.xhtml"/>
+						<p:menuitem value="Listados"		action="cursosListado.xhtml"/>
+					</p:submenu>
+				</p:menu>
+
+				<p:commandButton value="Cerrar" oncomplete="PF('menuDeslizable').hide()"/>
+			</p:sidebar>
+		</h:form>
+
+    </h:body>
+</html>

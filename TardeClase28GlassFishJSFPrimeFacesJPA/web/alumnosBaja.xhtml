@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+        <title>Sistema de colegio</title>
+    </h:head>
+    <h:body>
+		<p:panel header="Baja de Alumnos">
+
+			<h:form>
+				<p:growl id="msgs" showDetail="true"/>
+
+				<h:panelGrid columns="2">
+					<p:selectOneMenu id="alumnos" value="#{alumnoMB.alumno.id}">
+						<f:selectItems value="#{alumnoMB.all}" var="a"
+									   itemValue="#{a.id}"
+									   itemLabel="#{a.id}, #{a.nombre}, #{a.apellido}, #{a.edad}, #{a.idCurso}"/>
+					</p:selectOneMenu>
+
+					<p:commandButton action="#{alumnoMB.remove()}" value="Borrar" update="msgs, alumnos" style="width: 100px"/>
+				</h:panelGrid>
+			</h:form>
+
+			<h:form>
+				<p:commandButton value="Volver" style="width: 100px; margin: 3px" action="index.xhtml"/>
+			</h:form>
+
+		</p:panel>
+	</h:body>
+</html>
