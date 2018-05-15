@@ -61,12 +61,12 @@ public class Main {
 		}
 	} // end class Hilo
 	
-	Hilo hilo1 = new Hilo("hilo1");
-	Hilo hilo2 = new Hilo("hilo2");
-	Hilo hilo3 = new Hilo("hilo3");
-	Hilo hilo4 = new Hilo("hilo4");
+	//Hilo hilo1 = new Hilo("hilo1");
+	//Hilo hilo2 = new Hilo("hilo2");
+	//Hilo hilo3 = new Hilo("hilo3");
+	//Hilo hilo4 = new Hilo("hilo4");
 	
-	// método run: cuidad! no ejecuta en un nuevo Thread
+	// Método run: CUIDADO! no ejecuta en un nuevo Thread
 	//hilo1.run();
 	//hilo2.run();
 	//hilo3.run();
