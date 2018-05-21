@@ -1,3 +1,5 @@
+package serverclient;
+
 import java.io.InputStream;
 import java.net.Socket;
 
