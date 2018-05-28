@@ -1,6 +1,6 @@
 package ar.org.centro8.curso.java.services;
 
-public class TardeClase32 {
+public class TardeClase33 {
 
 	public static void main(String[] args) {
 		/*
@@ -23,6 +23,8 @@ public class TardeClase32 {
 		new Thread(new AlumnosBajasService()).start();
 		new Thread(new AlumnosGetService()).start();
 		new Thread(new AlumnosModifService()).start();
+		new Thread(new AlumnosListService()).start();
+		new Thread(new CursosListService()).start();
 	}
 	
 }

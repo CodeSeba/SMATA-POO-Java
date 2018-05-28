@@ -8,13 +8,14 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
 
-public class AlumnosGetService implements Runnable {
+public class AlumnosListService implements Runnable {
 
-	private final int port = 8004;
+	private final int port = 8005;
 	
 	public boolean validar(String input) {
-		if ( ! new Validator(input).isSecure() || ! new Validator(input).isInteger()) return false;
+		if ( ! new Validator(input).isSecure()) return false;
 		return true;
 	}
 	
@@ -24,37 +25,41 @@ public class AlumnosGetService implements Runnable {
 		try {
 			ServerSocket ss = new ServerSocket(port);
 			while (true) {
-				System.out.println("Servicio Alumnos Get puerto: " + port);
+				System.out.println("Servicio Alumnos List puerto: " + port);
 				
 				try(	Socket so = ss.accept();
 						DataInputStream in = new DataInputStream(so.getInputStream());
 						DataOutputStream out = new DataOutputStream(so.getOutputStream());
 				) {
 					
-					System.out.println("Servicio Alumnos Get se conecto: " + so.getInetAddress());
+					System.out.println("Servicio Alumnos List se conecto: " + so.getInetAddress());
 					String input = in.readUTF();
 					
 					if ( validar(input) ) {
 						GenericR<Alumno> ar = new GenericR(Connector.getConnection(), Alumno.class);
-						Alumno alumno = ar.getById(Integer.parseInt(input));
-						out.writeUTF(
-								alumno.getId() + "," +
-								alumno.getNombre()+ "," +
-								alumno.getApellido()+ "," +
-								alumno.getEdad()+ "," +
-								alumno.getIdCurso()
-						);
+						if ( input.isEmpty() ) input = "1=1";
+						List<Alumno> lista = ar.getByFiltro(input);
+
+						String texto = "";
+						for (Alumno a : lista) {
+							texto +=	a.getId() + "," +
+										a.getNombre() + "," +
+										a.getApellido() + "," +
+										a.getEdad() + "," +
+										a.getIdCurso() + "\n";
+						}
+						out.writeUTF(texto);
 					}
 					else {
 						System.out.println("----------------------------------------");
-						System.out.println("Servicio Alumnos Get reporta un error en input:");
+						System.out.println("Servicio Alumnos List reporta un error en input:");
 						out.writeUTF("false");
 						System.out.println("----------------------------------------");
 					}
 					
 				} catch (Exception e) {
 					System.out.println("----------------------------------------");
-					System.out.println("Servicio Alumnos Get reporta un error:");
+					System.out.println("Servicio Alumnos List reporta un error:");
 					System.out.println(e);
 					System.out.println("----------------------------------------");
 				}

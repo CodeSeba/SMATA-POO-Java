@@ -18,7 +18,7 @@ import java.net.Socket;
  * java 10 fue liberado en 03/2018, no es LTS.
  * java 11  se liberara en 09/2018, va a ser con soporte LTS hasta 2026.
  * 
-*/
+ */
 
 public class TestServices {
 	
@@ -50,40 +50,66 @@ public class TestServices {
 
 		// Test Get
 		
-		try(	Socket so = new Socket("localhost",8004);
+//		try(	Socket so = new Socket("localhost",8004);
+//				DataOutputStream out = new DataOutputStream(so.getOutputStream());
+//				DataInputStream in = new DataInputStream(so.getInputStream());
+//		){
+//			System.out.println("------ Get ------");
+//			out.writeUTF("14");
+//			System.out.println(in.readUTF());
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+		
+		// Test Modificacion
+		
+//		try(	Socket soget = new Socket("localhost",8004);
+//				DataOutputStream outget = new DataOutputStream(soget.getOutputStream());
+//				DataInputStream inget = new DataInputStream(soget.getInputStream());
+//				
+//				Socket somod = new Socket("localhost",8003);
+//				DataOutputStream outmod = new DataOutputStream(somod.getOutputStream());
+//				DataInputStream inmod = new DataInputStream(somod.getInputStream());
+//		){
+//			System.out.println("------ Modificacion ------");
+//			outmod.writeUTF("14,Cosme,Fulanito,41,3");
+//			System.out.println(inmod.readUTF());
+//			outget.writeUTF("14");
+//			System.out.println(inget.readUTF());
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+
+		// Test AlumnosList
+
+//		try(	Socket so = new Socket("localhost",8005);
+//				DataOutputStream out = new DataOutputStream(so.getOutputStream());
+//				DataInputStream in = new DataInputStream(so.getInputStream());
+//
+//		){
+//			System.out.println("------ AlumnosList ------");
+//			//out.writeUTF("");
+//			out.writeUTF("apellido='Moreno'");
+//			System.out.println(in.readUTF());
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+
+		// Test CursosList
+
+		try(	Socket so = new Socket("localhost",8014);
 				DataOutputStream out = new DataOutputStream(so.getOutputStream());
 				DataInputStream in = new DataInputStream(so.getInputStream());
+
 		){
-			System.out.println("------ Get ------");
-			out.writeUTF("14");
+			System.out.println("------ CursosList ------");
+			//out.writeUTF("");
+			out.writeUTF("dia='Lunes'");
 			System.out.println(in.readUTF());
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+
 		
-		// Test Modificacion
-		
-		try(	Socket soget = new Socket("localhost",8004);
-				DataOutputStream outget = new DataOutputStream(soget.getOutputStream());
-				DataInputStream inget = new DataInputStream(soget.getInputStream());
-				
-				Socket somod = new Socket("localhost",8003);
-				DataOutputStream outmod = new DataOutputStream(somod.getOutputStream());
-				DataInputStream inmod = new DataInputStream(somod.getInputStream());
-		){
-			System.out.println("------ Get antes de Modificacion ------");
-			outget.writeUTF("14");
-			String alumnoget = inget.readUTF();
-			System.out.println(alumnoget);
-			
-			System.out.println("------ Despues de Modificacion ------");
-			String[] params = alumnoget.split(",");
-			outmod.writeUTF(params[0] + ",Cosme,Fulanito,41,3");
-			System.out.println(inmod.readUTF());
-			outget.writeUTF("14");
-			System.out.println(inget.readUTF());
-		} catch (Exception e) {
-			System.out.println(e);
-		}
 	}
 }

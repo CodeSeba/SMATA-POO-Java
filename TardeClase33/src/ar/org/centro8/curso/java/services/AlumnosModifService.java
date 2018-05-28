@@ -28,7 +28,7 @@ public class AlumnosModifService implements Runnable {
 		try {
 			ServerSocket ss = new ServerSocket(port);
 			while (true) {
-				System.out.println("Servicio Alumnos Modificacion puerto: " + port + "\nEsperando conexión.");
+				System.out.println("Servicio Alumnos Modificacion puerto: " + port);
 				
 				try(	Socket so = ss.accept();
 						DataInputStream in = new DataInputStream(so.getInputStream());

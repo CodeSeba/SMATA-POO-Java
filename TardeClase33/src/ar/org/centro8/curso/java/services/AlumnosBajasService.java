@@ -24,7 +24,7 @@ public class AlumnosBajasService implements Runnable {
 		try {
 			ServerSocket ss = new ServerSocket(port);
 			while (true) {
-				System.out.println("Servicio Alumnos Baja puerto: " + port + "\nEsperando conexión.");
+				System.out.println("Servicio Alumnos Baja puerto: " + port);
 				
 				try(	Socket so = ss.accept();
 						DataInputStream in = new DataInputStream(so.getInputStream());
@@ -41,14 +41,14 @@ public class AlumnosBajasService implements Runnable {
 					}
 					else {
 						System.out.println("----------------------------------------");
-						System.out.println("Servicio Alumnos Altas reporta un error en input:");
+						System.out.println("Servicio Alumnos Bajas reporta un error en input:");
 						out.writeUTF("false");
 						System.out.println("----------------------------------------");
 					}
 					
 				} catch (Exception e) {
 					System.out.println("----------------------------------------");
-					System.out.println("Servicio Alumnos Altas reporta un error:");
+					System.out.println("Servicio Alumnos Bajas reporta un error:");
 					System.out.println(e);
 					System.out.println("----------------------------------------");
 				}
