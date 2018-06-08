@@ -12,6 +12,7 @@ public class ApplicationConfig extends Application{
 		Set<Class<?>> resources = new HashSet();
 		resources.add(rest.TestRest.class);
 		resources.add(ar.org.centro8.curso.java.services.AlumnoServiceRest.class);
+		resources.add(ar.org.centro8.curso.java.services.CursoServiceRest.class);
 		return resources;
 	}
 }

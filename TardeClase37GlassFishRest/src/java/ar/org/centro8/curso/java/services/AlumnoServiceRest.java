@@ -3,6 +3,7 @@ package ar.org.centro8.curso.java.services;
 import ar.org.centro8.curso.java.connectors.Connector;
 import ar.org.centro8.curso.java.entities.Alumno;
 import ar.org.centro8.curso.java.repositories.GenericR;
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -68,12 +69,14 @@ public class AlumnoServiceRest {
 	public String getById( @QueryParam("id") int id ) {
 		try {
 			GenericR<Alumno> ar = new GenericR(Connector.getConnection(), Alumno.class);
+			Alumno alumno = ar.getById(id);
+			if ( alumno == null ) return "false";
 		return
-				"Id: " + ar.getById(id).getId() + "\n" +
-				"Nombre: " + ar.getById(id).getNombre() + "\n" +
-				"Apellido: " + ar.getById(id).getApellido() + "\n" +
-				"Edad: " + ar.getById(id).getEdad() + "\n" +
-				"IdCurso: " + ar.getById(id).getIdCurso();
+				alumno.getId() + "," +
+				alumno.getNombre() + "," +
+				alumno.getApellido() + "," +
+				alumno.getEdad() + "," +
+				alumno.getIdCurso() + "\n";
 		} catch (Exception e) {
 			return "false";
 		}
@@ -81,9 +84,43 @@ public class AlumnoServiceRest {
 	
 	@GET
 	@Path("all")
-	public String getAll() { return ""; }
+	public String getAll() {
+		try {
+			GenericR<Alumno> ar = new GenericR(Connector.getConnection(), Alumno.class);
+			String response = "";
+			for ( Alumno alumno : ar.getAll() ) {
+				response +=
+						alumno.getId() + "," +
+						alumno.getNombre() + "," +
+						alumno.getApellido() + "," +
+						alumno.getEdad() + "," +
+						alumno.getIdCurso() + "\n";
+			}
+			return response;
+		} catch (Exception e) {
+			return "false";
+		}
+	}
 	
 	@GET
 	@Path("byFiltro")
-	public String getByFiltro( @QueryParam("filtro") String filtro) { return ""; }
+	public String getByFiltro( @QueryParam("filtro") String filtro) {
+		try {
+			GenericR<Alumno> ar = new GenericR(Connector.getConnection(), Alumno.class);
+			String response = "";
+			for ( Alumno alumno : ar.getByFiltro(filtro) ) {
+				response +=
+						alumno.getId() + "," +
+						alumno.getNombre() + "," +
+						alumno.getApellido() + "," +
+						alumno.getEdad() + "," +
+						alumno.getIdCurso() + "\n";
+			}
+			return response;
+		} catch (Exception e) {
+			return "false";
+		}
+		// http://localhost:8080/TardeClase37GlassFishRest/webResources/v1/alumno/
+		// byFiltro?filtro=nombre='Gabriel'
+	}
 }
