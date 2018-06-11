@@ -3,7 +3,6 @@ package ar.org.centro8.curso.java.services;
 import ar.org.centro8.curso.java.connectors.Connector;
 import ar.org.centro8.curso.java.entities.Alumno;
 import ar.org.centro8.curso.java.repositories.GenericR;
-import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
