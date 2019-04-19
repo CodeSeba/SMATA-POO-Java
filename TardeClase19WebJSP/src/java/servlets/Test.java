@@ -41,7 +41,7 @@ public class Test extends HttpServlet {
 			out.println("<h1>Servlet Test at " + request.getContextPath() + "</h1>");
 			out.println("<h1>Servidor de Sebas</h1>");
 			try {
-				// http://localhost:8080/TardeClase19WEBJSP/Test?nro1=4&nro2=5
+				// http://localhost:8080/TardeClase19WebJSP/Test?nro1=4&nro2=5
 				int nro1 = Integer.parseInt(request.getParameter("nro1"));
 				int nro2 = Integer.parseInt(request.getParameter("nro2"));
 				out.println("<h2>La suma total: " + (nro1 + nro2) + "</h2>");

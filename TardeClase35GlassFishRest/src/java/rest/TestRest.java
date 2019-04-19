@@ -25,6 +25,6 @@ public class TestRest {
 	public String sumar(@QueryParam("nro1") int nro1, @QueryParam("nro2") int nro2) {
 		return (nro1 + nro2) + "";
 	}
-	// http://localhost:8080/TardeClase35GlassFishRest/webResources/test/suma?A=4&B=6
+	// http://localhost:8080/TardeClase35GlassFishRest/webResources/test/suma?nro1=4&nro2=6
 	
 }
